@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form name="form"><textarea name="main" onkeydown="typeTextarea()" cols="40" rows="10"></textarea></form>
+
+<script>
+    let message = "ĐỨA NÀO VIẾT LÀ ĐỨA NGỐC, HAHA";
+    let text = "";
+    function typeTextarea(){
+        let len = document.form.main.value.length;
+        if(len > 0) {
+            for(let i=0; i<len; i++){
+                text = text + message[i];
+                if(i == message.length) {
+                    document.form.main.value = "";
+                    text = "";
+                }
+            }
+        }
+        document.form.main.value = text;
+        text="";
+        setTimeout("typeTextarea()", 1);
+    }
+</script>
+</body>
+</html>
